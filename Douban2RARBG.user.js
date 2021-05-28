@@ -6,8 +6,8 @@
 // @author       Mogeko
 // @match        https://movie.douban.com/subject/*
 // @icon         https://img9.doubanio.com/favicon.ico
-// @updateURL    https://raw.githubusercontent.com/Mogeko/Douban2RARBG/master/IMDb2RARBG.meta.js
-// @downloadURL  https://raw.githubusercontent.com/Mogeko/Douban2RARBG/master/IMDb2RARBG.user.js
+// @updateURL    https://raw.githubusercontent.com/Mogeko/Douban2RARBG/master/Douban2RARBG.meta.js
+// @downloadURL  https://raw.githubusercontent.com/Mogeko/Douban2RARBG/master/Douban2RARBG.user.js
 // @grant        none
 // ==/UserScript==
 
