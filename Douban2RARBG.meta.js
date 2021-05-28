@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Douban2RARBG
 // @namespace    https://mogeko.me
-// @version      0.1
+// @version      0.2
 // @description  Add direct links to RARBG & TPB from Douban.
 // @author       Mogeko
 // @match        https://movie.douban.com/subject/*

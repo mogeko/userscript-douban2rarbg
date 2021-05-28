@@ -4,7 +4,9 @@
 
  一个油猴脚本 (User Script)。
 
-为[豆瓣电影](https://douban.com/movie)添加两个链接，分别跳转到 [RARBG](https://rarbgmirror.com) 和 [TPB](https://thepiratebay.org)。
+为[豆瓣电影](https://douban.com/movie)添加两个找资源的链接，分别跳转到 [RARBG](https://rarbgmirror.com) 和 [TPB](https://thepiratebay.org)。
+
+以及两个找字幕的链接，分别跳转到 [opensubtitles](https://www.opensubtitles.org/zh) 和 [SubHD](https://subhd.tv)。
 
 ## Depends
 
