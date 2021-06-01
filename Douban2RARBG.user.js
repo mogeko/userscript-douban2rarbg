@@ -1,14 +1,15 @@
 // ==UserScript==
 // @name         Douban2RARBG
 // @namespace    https://mogeko.me
-// @version      0.2
+// @version      0.2.1
 // @description  Add direct links to RARBG & TPB from Douban.
 // @author       Mogeko
+// @supportURL   https://github.com/Mogeko/userscript-douban2rarbg/issues
 // @match        https://movie.douban.com/subject/*
 // @icon         https://img9.doubanio.com/favicon.ico
-// @updateURL    https://raw.githubusercontent.com/Mogeko/Douban2RARBG/master/Douban2RARBG.meta.js
-// @downloadURL  https://raw.githubusercontent.com/Mogeko/Douban2RARBG/master/Douban2RARBG.user.js
+// @updateURL    https://cdn.jsdelivr.net/gh/Mogeko/userscript-douban2rarbg@master/Douban2RARBG.user.js
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 const RESOURCE_SITE_DATA = [
