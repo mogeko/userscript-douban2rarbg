@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Douban2RARBG
 // @namespace    https://mogeko.me
-// @version      0.2.1
+// @version      0.3.1
 // @description  Add direct links to RARBG & TPB from Douban.
 // @author       Mogeko
 // @supportURL   https://github.com/Mogeko/userscript-douban2rarbg/issues
@@ -19,7 +19,8 @@ const RESOURCE_SITE_DATA = [
 
 const SUBTITLE_SITE_DATA = [
     ["opensubtitles", "https://www.opensubtitles.org/zh/search/imdbid-%x/sublanguageid-all/moviename-%i"],
-    ["SubHD", "https://subhd.tv/search/%d"]
+    ["SubHD", "https://subhd.tv/search/%d"],
+    ["字幕组", "https://zmk.pw/search?q=%i"]
 ];
 
 const getItemNode = (l_Name, siteData, imdb, doubanID) => {
