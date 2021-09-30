@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Douban2RARBG
 // @namespace    https://mogeko.me
-// @version      0.3.1
+// @version      0.4.1
 // @description  Add direct links to RARBG & TPB from Douban.
 // @author       Mogeko
 // @supportURL   https://github.com/Mogeko/userscript-douban2rarbg/issues
@@ -13,7 +13,8 @@
 // ==/UserScript==
 
 const RESOURCE_SITE_DATA = [
-    ["RARBG", "https://rarbgmirror.com/torrents.php?imdb=%i"],
+    ["RARBG", "https://rarbg.to/torrents.php?imdb=%i"],
+    ["RARBG (Mirror)", "https://rarbgmirror.com/torrents.php?imdb=%i"],
     ["TPB", "https://thepiratebay.org/search.php?q=%i"]
 ];
 
