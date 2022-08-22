@@ -1,0 +1,21 @@
+{
+  "name": "userscript-douban2rarbg",
+  "version": "0.4.2",
+  "description": "Add direct links to RARBG & TPB from Douban.",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
+  },
+  "keywords": [
+    "userscript",
+    "tampermonkey",
+    "douban",
+    "rarbg"
+  ],
+  "author": "Mogeko",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}

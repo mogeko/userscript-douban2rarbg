@@ -17,7 +17,8 @@ Click [here](https://cdn.jsdelivr.net/gh/Mogeko/userscript-douban2rarbg@master/D
 View this UserScript in [Greasy Fork](https://greasyfork.org/zh-CN/scripts/427181-douban2rarbg).
 
 ## Screenshot
-![Screenshot](https://cdn.jsdelivr.net/gh/Mogeko/userscript-douban2rarbg@master/Screenshot.jpg)
+
+![Screenshot](/docs/screenshot.jpg)
 
 ## License
 
