@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Douban2RARBG
-// @version     0.5.0
+// @version     0.6.0
 // @author      Mogeko
 // @description Add direct links to RARBG & TPB from Douban.
 // @supportURL  https://github.com/mogeko/userscript-douban2rarbg/issues
@@ -72,7 +72,9 @@ var META_DATA = {
     字幕: {
         opensubtitles: "https://www.opensubtitles.org/zh/search/imdbid-%x/sublanguageid-all/moviename-%i",
         SubHD: "https://subhd.tv/search/%d",
-        字幕组: "https://zmk.pw/search?q=%i"
+        字幕库: "https://so.zimuku.org/search?q=%i",
+        R3SUB: "https://r3sub.com/search.php?s=%i",
+        点点字幕: "http://www.ddzimu.com/download/xslist.php?key=%d"
     }
 };
 (function() {

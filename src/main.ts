@@ -9,7 +9,9 @@ const META_DATA = {
     opensubtitles:
       "https://www.opensubtitles.org/zh/search/imdbid-%x/sublanguageid-all/moviename-%i",
     SubHD: "https://subhd.tv/search/%d",
-    字幕组: "https://zmk.pw/search?q=%i",
+    字幕库: "https://so.zimuku.org/search?q=%i",
+    R3SUB: "https://r3sub.com/search.php?s=%i",
+    点点字幕: "http://www.ddzimu.com/download/xslist.php?key=%d",
   },
 };
 
