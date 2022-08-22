@@ -12,7 +12,7 @@ Depends on [Tampermonkey](https://www.tampermonkey.net/) or [Greasemonkey](https
 
 ## Install
 
-Click [here](https://cdn.jsdelivr.net/gh/Mogeko/userscript-douban2rarbg@master/Douban2RARBG.user.js) to install.
+Click [here](https://cdn.jsdelivr.net/gh/mogeko/userscript-douban2rarbg@master/dist/Douban2RARBG.user.js) to install.
 
 View this UserScript in [Greasy Fork](https://greasyfork.org/zh-CN/scripts/427181-douban2rarbg).
 
@@ -22,4 +22,4 @@ View this UserScript in [Greasy Fork](https://greasyfork.org/zh-CN/scripts/42718
 
 ## License
 
-The code in this project is released under the [MIT License](https://github.com/Mogeko/Douban2RARBG/blob/master/LICENSE).
+The code in this project is released under the [MIT License](/LICENSE).
