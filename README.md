@@ -1,6 +1,6 @@
 # Douban2RARBG
 
- 一个油猴脚本 (Userscript)。
+一个油猴脚本 (Userscript)。
 
 为[豆瓣电影](https://douban.com/movie)添加两个找资源的链接，分别跳转到 [RARBG](https://rarbgmirror.com) 和 [TPB](https://thepiratebay.org)。
 
