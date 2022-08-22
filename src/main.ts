@@ -11,17 +11,17 @@ const SUBTITLE_SITE_DATA = {
   字幕组: "https://zmk.pw/search?q=%i",
 };
 
-function handleMeta(l_Name, siteData, imdb, doubanID) {
+function handleMeta(keyTitle: string, siteData: SiteData, imdb?: string, doubanID?: string) {
   const metaNode = document.createElement("span");
   const keyNode = document.createElement("span");
   const valueNode = document.createElement("span");
 
   keyNode.className = "pl";
-  keyNode.innerHTML = l_Name;
+  keyNode.innerHTML = keyTitle;
 
   const links = Object.entries(siteData).map(([title, url]) => {
-    const handleURL = (url) => {
-      const [i, d, x] = [imdb, doubanID, imdb.replace(/^tt/, "")];
+    const handleURL = (url: string) => {
+      const [i = "", d = "", x = ""] = [imdb, doubanID, imdb?.replace(/^tt/, "")];
 
       return url.replace("%i", i).replace("%d", d).replace("%x", x);
     };
@@ -51,12 +51,13 @@ function handleMeta(l_Name, siteData, imdb, doubanID) {
 (function () {
   "use strict";
   const mateNode = document.querySelector("#info");
-
-  const imdb = mateNode?.innerHTML.match(/tt[0-9]{4,}/)[0];
+  const imdb = mateNode?.innerHTML?.match(/tt[0-9]{4,}/)?.[0];
   const doubanID = document.location.toString().split("/")[4];
 
   mateNode?.appendChild(handleMeta("资源: ", RESOURCE_SITE_DATA, imdb));
-  mateNode?.appendChild(
-    handleMeta("字幕: ", SUBTITLE_SITE_DATA, imdb, doubanID)
-  );
+  mateNode?.appendChild(handleMeta("字幕: ", SUBTITLE_SITE_DATA, imdb, doubanID));
 })();
+
+type SiteData = typeof RESOURCE_SITE_DATA | typeof SUBTITLE_SITE_DATA;
+
+export {};

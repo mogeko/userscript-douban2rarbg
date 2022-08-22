@@ -8,7 +8,7 @@ const JSDELIVR_URL = "https://cdn.jsdelivr.net";
 
 module.exports = {
   mode: "production",
-  entry: "./src/main.js",
+  entry: "./src/main.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "Douban2RARBG.user.js",
@@ -24,10 +24,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.ts$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "swc-loader",
+          options: {
+            jsc: {
+              parser: {
+                syntax: "typescript",
+              },
+              target: "es5",
+            },
+          },
         },
       },
     ],

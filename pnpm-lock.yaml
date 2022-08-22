@@ -4,6 +4,7 @@ specifiers:
   '@swc/core': ^1.2.241
   prettier: ^2.7.1
   swc-loader: ^0.2.3
+  typescript: ^4.7.4
   webpack: ^5.74.0
   webpack-cli: ^4.10.0
   webpack-userscript: ^2.5.8
@@ -12,6 +13,7 @@ devDependencies:
   '@swc/core': 1.2.241
   prettier: 2.7.1
   swc-loader: 0.2.3_w322td5fcxzrbi4j3tewgvv7hu
+  typescript: 4.7.4
   webpack: 5.74.0_ol3mosxjb4b4ou5dhgjexc5hbi
   webpack-cli: 4.10.0_webpack@5.74.0
   webpack-userscript: 2.5.8_webpack@5.74.0
@@ -1182,6 +1184,12 @@ packages:
 
   /tweetnacl/0.14.5:
     resolution: {integrity: sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA==}
+    dev: true
+
+  /typescript/4.7.4:
+    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
 
   /update-browserslist-db/1.0.5_browserslist@4.21.3:
