@@ -14,7 +14,7 @@ module.exports = {
     filename: "Douban2RARBG.user.js",
   },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         extractComments: false,
