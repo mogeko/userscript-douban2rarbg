@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Douban2RARBG
-// @version     0.4.3
+// @version     0.4.4
 // @author      Mogeko
 // @description Add direct links to RARBG & TPB from Douban.
 // @supportURL  https://github.com/mogeko/userscript-douban2rarbg/issues
@@ -61,56 +61,59 @@ function _unsupportedIterableToArray(o, minLen) {
     if (n === "Map" || n === "Set") return Array.from(n);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
-var RESOURCE_SITE_DATA = {
-    RARBG: "https://rarbg.to/torrents.php?imdb=%i",
-    "RARBG (Mirror)": "https://rarbgmirror.com/torrents.php?imdb=%i",
-    TPB: "https://thepiratebay.org/search.php?q=%i"
+var META_DATA = {
+    资源: {
+        RARBG: "https://rarbg.to/torrents.php?imdb=%i",
+        "RARBG (Mirror)": "https://rarbgmirror.com/torrents.php?imdb=%i",
+        TPB: "https://thepiratebay.org/search.php?q=%i"
+    },
+    字幕: {
+        opensubtitles: "https://www.opensubtitles.org/zh/search/imdbid-%x/sublanguageid-all/moviename-%i",
+        SubHD: "https://subhd.tv/search/%d",
+        字幕组: "https://zmk.pw/search?q=%i"
+    }
 };
-var SUBTITLE_SITE_DATA = {
-    opensubtitles: "https://www.opensubtitles.org/zh/search/imdbid-%x/sublanguageid-all/moviename-%i",
-    SubHD: "https://subhd.tv/search/%d",
-    字幕组: "https://zmk.pw/search?q=%i"
-};
-function handleMeta(keyName, siteData, imdb, doubanID) {
-    var metaNode = document.createElement("span");
-    var keyNode = document.createElement("span");
-    var valueNode = document.createElement("span");
-    keyNode.className = "pl";
-    keyNode.innerHTML = keyName;
-    var links = Object.entries(siteData).map(function(param) {
-        var _param = _slicedToArray(param, 2), title = _param[0], url = _param[1];
-        var handleURL = function(url) {
-            var ref = [
-                imdb,
-                doubanID,
-                imdb === null || imdb === void 0 ? void 0 : imdb.replace(/^tt/, ""), 
-            ], tmp = ref[0], i = tmp === void 0 ? "" : tmp, tmp1 = ref[1], d = tmp1 === void 0 ? "" : tmp1, tmp2 = ref[2], x = tmp2 === void 0 ? "" : tmp2;
-            return url.replace("%i", i).replace("%d", d).replace("%x", x);
-        };
-        var link = document.createElement("a");
-        link.textContent = title;
-        link.href = handleURL(url);
-        link.target = "_blank";
-        return link;
-    });
-    links.forEach(function(node, index, array) {
-        valueNode.appendChild(node);
-        if (index !== array.length - 1) {
-            valueNode.innerHTML += " / ";
-        }
-    });
-    metaNode.appendChild(keyNode);
-    metaNode.appendChild(valueNode);
-    metaNode.innerHTML += "</br>";
-    return metaNode;
-}
 (function() {
     var ref, ref1;
-    var mateNode = document.querySelector("#info");
-    var imdb = (ref1 = mateNode === null || mateNode === void 0 ? void 0 : (ref = mateNode.innerHTML) === null || ref === void 0 ? void 0 : ref.match(/tt[0-9]{4,}/)) === null || ref1 === void 0 ? void 0 : ref1[0];
+    var metaRoot = document.querySelector("#info");
+    var imdb = (ref1 = metaRoot === null || metaRoot === void 0 ? void 0 : (ref = metaRoot.innerHTML) === null || ref === void 0 ? void 0 : ref.match(/tt[0-9]{4,}/)) === null || ref1 === void 0 ? void 0 : ref1[0];
     var doubanID = document.location.toString().split("/")[4];
-    mateNode === null || mateNode === void 0 ? void 0 : mateNode.appendChild(handleMeta("资源: ", RESOURCE_SITE_DATA, imdb));
-    mateNode === null || mateNode === void 0 ? void 0 : mateNode.appendChild(handleMeta("字幕: ", SUBTITLE_SITE_DATA, imdb, doubanID));
+    if (!imdb || !doubanID) return;
+    Object.entries(META_DATA).forEach(function(param) {
+        var _param = _slicedToArray(param, 2), key = _param[0], sites = _param[1];
+        var metaNode = document.createElement("span");
+        var keyNode = document.createElement("span");
+        var valueNode = document.createElement("span");
+        var br = document.createElement("br");
+        keyNode.textContent = "".concat(key, ": ");
+        keyNode.setAttribute("class", "pl");
+        var links = Object.entries(sites).map(function(param) {
+            var _param = _slicedToArray(param, 2), title = _param[0], template = _param[1];
+            var handleTemplate = function(template) {
+                var ref = [
+                    imdb,
+                    doubanID,
+                    imdb.replace(/^tt/, "")
+                ], i = ref[0], d = ref[1], x = ref[2];
+                return template.replace("%i", i).replace("%d", d).replace("%x", x);
+            };
+            var link = document.createElement("a");
+            link.textContent = title;
+            link.setAttribute("href", handleTemplate(template));
+            link.setAttribute("target", "_blank");
+            return link;
+        });
+        links.forEach(function(link, index, array) {
+            valueNode.appendChild(link);
+            if (index !== array.length - 1) {
+                valueNode.innerHTML += " / ";
+            }
+        });
+        metaNode.appendChild(keyNode);
+        metaNode.appendChild(valueNode);
+        metaRoot.appendChild(metaNode);
+        metaRoot.appendChild(br);
+    });
 })();
 
 

@@ -1,6 +1,6 @@
 {
   "name": "userscript-douban2rarbg",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Add direct links to RARBG & TPB from Douban.",
   "main": "index.js",
   "scripts": {
