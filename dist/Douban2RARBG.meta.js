@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Douban2RARBG
-// @version     0.4.4
+// @version     0.5.0
 // @author      Mogeko
 // @description Add direct links to RARBG & TPB from Douban.
 // @supportURL  https://github.com/mogeko/userscript-douban2rarbg/issues

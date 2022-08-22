@@ -2,6 +2,7 @@ const META_DATA = {
   资源: {
     RARBG: "https://rarbg.to/torrents.php?imdb=%i",
     "RARBG (Mirror)": "https://rarbgmirror.com/torrents.php?imdb=%i",
+    TorrentGalaxy: "https://torrentgalaxy.to/torrents.php?search=%i",
     TPB: "https://thepiratebay.org/search.php?q=%i",
   },
   字幕: {
@@ -14,19 +15,19 @@ const META_DATA = {
 
 (function () {
   const metaRoot = document.querySelector("#info");
-  const imdb = metaRoot?.innerHTML?.match(/tt[0-9]{4,}/)?.[0];
+  const imdb = metaRoot?.textContent?.match(/tt[0-9]{4,}/)?.[0];
   const doubanID = document.location.toString().split("/")[4];
 
   if (!imdb || !doubanID) return;
 
   Object.entries(META_DATA).forEach(([key, sites]) => {
     const metaNode = document.createElement("span");
-    const keyNode = document.createElement("span");
-    const valueNode = document.createElement("span");
+    const plNode = document.createElement("span");
+    const attrsNode = document.createElement("span");
     const br = document.createElement("br");
 
-    keyNode.textContent = `${key}: `;
-    keyNode.setAttribute("class", "pl");
+    plNode.setAttribute("class", "pl");
+    plNode.textContent = `${key}: `;
 
     const links = Object.entries(sites).map(([title, template]) => {
       const handleTemplate = (template: string) => {
@@ -36,22 +37,24 @@ const META_DATA = {
       };
       const link = document.createElement("a");
 
-      link.textContent = title;
       link.setAttribute("href", handleTemplate(template));
       link.setAttribute("target", "_blank");
+      link.textContent = title;
 
       return link;
     });
 
+    attrsNode.setAttribute("class", "attrs");
     links.forEach((link, index, array) => {
-      valueNode.appendChild(link);
+      attrsNode.appendChild(link);
       if (index !== array.length - 1) {
-        valueNode.innerHTML += " / ";
+        attrsNode.innerHTML += " / ";
       }
     });
 
-    metaNode.appendChild(keyNode);
-    metaNode.appendChild(valueNode);
+    metaNode.appendChild(plNode);
+    metaNode.appendChild(attrsNode);
+
     metaRoot.appendChild(metaNode);
     metaRoot.appendChild(br);
   });

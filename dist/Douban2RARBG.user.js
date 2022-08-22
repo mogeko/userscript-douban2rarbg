@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Douban2RARBG
-// @version     0.4.4
+// @version     0.5.0
 // @author      Mogeko
 // @description Add direct links to RARBG & TPB from Douban.
 // @supportURL  https://github.com/mogeko/userscript-douban2rarbg/issues
@@ -65,6 +65,7 @@ var META_DATA = {
     资源: {
         RARBG: "https://rarbg.to/torrents.php?imdb=%i",
         "RARBG (Mirror)": "https://rarbgmirror.com/torrents.php?imdb=%i",
+        TorrentGalaxy: "https://torrentgalaxy.to/torrents.php?search=%i",
         TPB: "https://thepiratebay.org/search.php?q=%i"
     },
     字幕: {
@@ -76,17 +77,17 @@ var META_DATA = {
 (function() {
     var ref, ref1;
     var metaRoot = document.querySelector("#info");
-    var imdb = (ref1 = metaRoot === null || metaRoot === void 0 ? void 0 : (ref = metaRoot.innerHTML) === null || ref === void 0 ? void 0 : ref.match(/tt[0-9]{4,}/)) === null || ref1 === void 0 ? void 0 : ref1[0];
+    var imdb = (ref1 = metaRoot === null || metaRoot === void 0 ? void 0 : (ref = metaRoot.textContent) === null || ref === void 0 ? void 0 : ref.match(/tt[0-9]{4,}/)) === null || ref1 === void 0 ? void 0 : ref1[0];
     var doubanID = document.location.toString().split("/")[4];
     if (!imdb || !doubanID) return;
     Object.entries(META_DATA).forEach(function(param) {
         var _param = _slicedToArray(param, 2), key = _param[0], sites = _param[1];
         var metaNode = document.createElement("span");
-        var keyNode = document.createElement("span");
-        var valueNode = document.createElement("span");
+        var plNode = document.createElement("span");
+        var attrsNode = document.createElement("span");
         var br = document.createElement("br");
-        keyNode.textContent = "".concat(key, ": ");
-        keyNode.setAttribute("class", "pl");
+        plNode.setAttribute("class", "pl");
+        plNode.textContent = "".concat(key, ": ");
         var links = Object.entries(sites).map(function(param) {
             var _param = _slicedToArray(param, 2), title = _param[0], template = _param[1];
             var handleTemplate = function(template) {
@@ -98,19 +99,20 @@ var META_DATA = {
                 return template.replace("%i", i).replace("%d", d).replace("%x", x);
             };
             var link = document.createElement("a");
-            link.textContent = title;
             link.setAttribute("href", handleTemplate(template));
             link.setAttribute("target", "_blank");
+            link.textContent = title;
             return link;
         });
+        attrsNode.setAttribute("class", "attrs");
         links.forEach(function(link, index, array) {
-            valueNode.appendChild(link);
+            attrsNode.appendChild(link);
             if (index !== array.length - 1) {
-                valueNode.innerHTML += " / ";
+                attrsNode.innerHTML += " / ";
             }
         });
-        metaNode.appendChild(keyNode);
-        metaNode.appendChild(valueNode);
+        metaNode.appendChild(plNode);
+        metaNode.appendChild(attrsNode);
         metaRoot.appendChild(metaNode);
         metaRoot.appendChild(br);
     });
