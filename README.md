@@ -1,4 +1,6 @@
-:warning: This repo has been **abandoned** and moved to [mogeko/userscripts](https://github.com/mogeko/userscripts/tree/master/packages/douban2rarbg). :warning:
+---
+
+#### :warning: This repo has been **abandoned** and moved to [mogeko/userscripts](https://github.com/mogeko/userscripts/tree/master/packages/douban2rarbg). :warning:
 
 ---
 
