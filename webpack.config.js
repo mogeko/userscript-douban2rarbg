@@ -44,7 +44,7 @@ module.exports = {
     new WebpackUserscript({
       headers: {
         name: "Douban2RARBG",
-        namespace: "https://mogeko.me",
+        namespace: `https://github.com/${GITHUB_REPO}`,
         supportURL: `${GITHUB_URL}/${GITHUB_REPO}/issues`,
         match: "https://movie.douban.com/subject/*",
         icon: "https://img9.doubanio.com/favicon.ico",
