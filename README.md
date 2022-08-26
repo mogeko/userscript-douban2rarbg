@@ -1,3 +1,7 @@
+:warning: This repo has been **abandoned** and moved to [mogeko/userscripts](https://github.com/mogeko/userscripts/tree/master/packages/douban2rarbg). :warning:
+
+---
+
 # Douban2RARBG
 
 一个油猴脚本 (Userscript)。
